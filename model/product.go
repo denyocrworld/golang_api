@@ -4,8 +4,10 @@ import "gorm.io/gorm"
 
 type Product struct {
 	gorm.Model
-	Name              string
+	ID                uint `json:"id" gorm:"primaryKey"`
+	ProductName       string
 	Description       string
 	Price             float64
-	ProductCategoryID uint // Kunci asing untuk menghubungkan ke kategori produk
+	ProductCategory   ProductCategory // Relasi dengan ProductCategory
+	ProductCategoryID uint            // Kunci asing untuk menghubungkan ke kategori produk
 }
