@@ -7,7 +7,7 @@ import (
 	"gorm.io/gorm"
 )
 
-var db *gorm.DB
+var DB *gorm.DB
 
 func Connect() {
 	var err error
@@ -16,11 +16,11 @@ func Connect() {
 	dsn := "root:@tcp(localhost:3306)/golang_db?charset=utf8mb4&parseTime=True&loc=Local"
 
 	// Connect to the MySQL database
-	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("Failed to connect to the database: " + err.Error())
 	}
 
 	// Auto-migrate the schema (create tables if they don't exist)
-	db.AutoMigrate(&model.User{}, &model.Product{}) // Replace User with your model struct
+	DB.AutoMigrate(&model.User{}, &model.Product{}) // Replace User with your model struct
 }
