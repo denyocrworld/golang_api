@@ -13,6 +13,11 @@ Jalankan perintah ini:
 air
 ```
 
+atau bisa juga dengan modemon!
+```
+nodemon --exec go run main.go
+```
+
 ## 1. Variable
 
 Variabel adalah tempat untuk menyimpan data dalam Go. Jenis data yang bisa disimpan dalam variabel mencakup bilangan bulat, desimal, string, boolean, dan tipe data kustom yang Anda buat sendiri dengan struct.

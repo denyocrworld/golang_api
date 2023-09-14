@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"yourmodule/controller"
 	"yourmodule/database"
 
@@ -50,5 +51,6 @@ func main() {
 	// routerGroup.DELETE("/product_categories/:id", controller.DeleteProductCategory)
 
 	// Menjalankan server pada port 8080
+	fmt.Println("OK!")
 	router.Run(":8080")
 }
