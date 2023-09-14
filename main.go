@@ -13,6 +13,7 @@ func main() {
 
 	// Membuat router Gin
 	router := gin.Default()
+	// router.Use(middleware.GlobalMiddleware)
 
 	router.GET("/users", controller.GetUsers)
 	router.GET("/users/:id", controller.GetUser)

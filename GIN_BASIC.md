@@ -207,3 +207,44 @@ func main() {
 Jalankan aplikasi Anda dengan perintah `go run main.go`. Aplikasi akan berjalan di `http://localhost:8080`.
 
 Sekarang, Anda memiliki rute CRUD untuk entitas pengguna (users) dalam proyek GIN-GORM Anda,
+
+
+## Menerapkan Middleware
+Menerapkan middleware di Golang cukup mudah,
+Misalnya disini kita ingin menerapkan Global Middleware
+Dimana semua request harus memiliki headers Authorization.
+
+`middleware/auth_middleware.go`
+```go
+package middleware
+
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
+// GlobalMiddleware is a middleware function that will be applied to all routes.
+func GlobalMiddleware(c *gin.Context) {
+	// Check if the Authorization header is present in the request.
+	authHeader := c.GetHeader("Authorization")
+	if authHeader == "" {
+		c.JSON(http.StatusUnauthorized, gin.H{
+			"error": "Unauthorized",
+		})
+		c.Abort() // Abort further processing if unauthorized.
+		return
+	}
+
+	// Continue to the next middleware or route handler.
+	c.Next()
+}
+
+```
+
+Tambahkan kode ini di `main.go`
+```go
+    router := gin.Default()
+	router.Use(middleware.GlobalMiddleware)
+	
+```
