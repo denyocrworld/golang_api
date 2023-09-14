@@ -1,3 +1,20 @@
+## Cara Create Project
+```go
+mkdir golang_api
+cd golang_api
+go mod init golang_api
+```
+
+## Cara menambahkan dependencies/plugin
+```
+go get nama-plugin
+```
+
+Contoh:
+```
+go get github.com/gorilla/mux
+```
+
 ## Cara Compile
 ```
 go run main.go
