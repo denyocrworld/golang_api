@@ -33,6 +33,22 @@ func main() {
 	router.PUT("/product_categories/:id", controller.UpdateProductCategory)
 	router.DELETE("/product_categories/:id", controller.DeleteProductCategory)
 
+	// Contoh dengan routerGroup
+	// Comment kode router yang di atas dulu yaa!
+
+	// routerGroup := router.Group("/api")
+	// routerGroup.GET("/products", controller.GetProducts)
+	// routerGroup.GET("/products/:id", controller.GetProduct)
+	// routerGroup.POST("/products", controller.CreateProduct)
+	// routerGroup.PUT("/products/:id", controller.UpdateProduct)
+	// routerGroup.DELETE("/products/:id", controller.DeleteProduct)
+
+	// routerGroup.GET("/product_categories", controller.GetProductCategories)
+	// routerGroup.GET("/product_categories/:id", controller.GetProductCategory)
+	// routerGroup.POST("/product_categories", controller.CreateProductCategory)
+	// routerGroup.PUT("/product_categories/:id", controller.UpdateProductCategory)
+	// routerGroup.DELETE("/product_categories/:id", controller.DeleteProductCategory)
+
 	// Menjalankan server pada port 8080
 	router.Run(":8080")
 }
