@@ -22,5 +22,5 @@ func Connect() {
 	}
 
 	// Auto-migrate the schema (create tables if they don't exist)
-	DB.AutoMigrate(&model.User{}, &model.Product{}) // Replace User with your model struct
+	DB.AutoMigrate(&model.User{}, &model.Product{}, &model.ProductCategory{}) // Replace User with your model struct
 }

@@ -1,4 +1,4 @@
-package product_controller
+package controller
 
 import (
 	"fmt"
