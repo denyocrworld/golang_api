@@ -1,4 +1,17 @@
-Tentu, berikut adalah tutorial dasar Go (Golang) tentang topik yang telah Anda sebutkan: variabel, operator aritmatika, pernyataan IF, array, struct, struct (named argument), pengulangan (looping), dan fungsi.
+## Cara Compile
+```
+go run main.go
+```
+
+## Hot Reload di Golang
+```
+go install github.com/cosmtrek/air@latest
+```
+
+Jalankan perintah ini:
+```
+air
+```
 
 ## 1. Variable
 
