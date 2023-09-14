@@ -246,5 +246,4 @@ Tambahkan kode ini di `main.go`
 ```go
     router := gin.Default()
 	router.Use(middleware.GlobalMiddleware)
-	
 ```
