@@ -16,25 +16,25 @@ func main() {
 	router := gin.Default()
 
 	// Rute untuk mendapatkan semua pengguna
-	router.GET("/users", getUsers)
+	router.GET("/users", GetUsers)
 
 	// Rute untuk mendapatkan pengguna berdasarkan ID
-	router.GET("/users/:id", getUser)
+	router.GET("/users/:id", GetUser)
 
 	// Rute untuk membuat pengguna baru
-	router.POST("/users", createUser)
+	router.POST("/users", CreateUser)
 
 	// Rute untuk memperbarui pengguna berdasarkan ID
-	router.PUT("/users/:id", updateUser)
+	router.PUT("/users/:id", UpdateUser)
 
 	// Rute untuk menghapus pengguna berdasarkan ID
-	router.DELETE("/users/:id", deleteUser)
+	router.DELETE("/users/:id", DeleteUser)
 
 	// Menjalankan server pada port 8080
 	router.Run(":8080")
 }
 
-func getUsers(c *gin.Context) {
+func GetUsers(c *gin.Context) {
 	var users []model.User
 	if err := database.DB.Find(&users).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -44,7 +44,7 @@ func getUsers(c *gin.Context) {
 }
 
 // Handler untuk mendapatkan pengguna berdasarkan ID
-func getUser(c *gin.Context) {
+func GetUser(c *gin.Context) {
 	var user model.User
 	userID := c.Param("id")
 	if err := database.DB.First(&user, userID).Error; err != nil {
@@ -55,7 +55,7 @@ func getUser(c *gin.Context) {
 }
 
 // Handler untuk membuat pengguna baru
-func createUser(c *gin.Context) {
+func CreateUser(c *gin.Context) {
 	var user model.User
 	if err := c.ShouldBindJSON(&user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -66,7 +66,7 @@ func createUser(c *gin.Context) {
 }
 
 // Handler untuk memperbarui pengguna berdasarkan ID
-func updateUser(c *gin.Context) {
+func UpdateUser(c *gin.Context) {
 	userID := c.Param("id")
 	var user model.User
 	if err := database.DB.First(&user, userID).Error; err != nil {
@@ -82,7 +82,7 @@ func updateUser(c *gin.Context) {
 }
 
 // Handler untuk menghapus pengguna berdasarkan ID
-func deleteUser(c *gin.Context) {
+func DeleteUser(c *gin.Context) {
 	userID := c.Param("id")
 	var user model.User
 	if err := database.DB.First(&user, userID).Error; err != nil {
