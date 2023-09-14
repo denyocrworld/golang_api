@@ -10,9 +10,26 @@ package main
 import "fmt"
 
 func main() {
-    var nama string = "John"
-    umur := 30 // Inferensi tipe data
-    fmt.Printf("Halo, nama saya %s dan saya berumur %d tahun.\n", nama, umur)
+    // Tipe data integer
+    var umur int
+    umur = 25
+
+    // Tipe data floating-point
+    var tinggi float64
+    tinggi = 175.5
+
+    // Tipe data string
+    var nama string
+    nama = "John Doe"
+
+    // Tipe data boolean
+    var aktif bool
+    aktif = true
+
+    fmt.Println("Umur:", umur)
+    fmt.Println("Tinggi:", tinggi)
+    fmt.Println("Nama:", nama)
+    fmt.Println("Aktif:", aktif)
 }
 ```
 
@@ -60,6 +77,29 @@ func main() {
         fmt.Println("Anda masih anak-anak.")
     }
 }
+```
+
+```go
+...
+if age >= 18 && isStudent {
+    fmt.Println("Anda adalah mahasiswa dewasa.")
+} else {
+    fmt.Println("Anda bukan mahasiswa dewasa.")
+}
+...
+```
+
+```go
+...
+isWeekend := true
+isHoliday := false
+
+if isWeekend || isHoliday {
+    fmt.Println("Hari ini adalah hari libur atau akhir pekan.")
+} else {
+    fmt.Println("Hari ini adalah hari kerja biasa.")
+}
+...
 ```
 
 ## 4. Array
