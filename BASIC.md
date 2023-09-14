@@ -148,6 +148,9 @@ func main() {
 
 Go tidak memiliki konsep "named arguments" seperti di beberapa bahasa pemrograman lain. Anda tetap harus menginisialisasi struct sesuai dengan urutan field yang telah dideklarasikan.
 
+Namun bisa mengisialisasi nilai Struct-nya dengan nama variabel-nya
+seperti dibawah ini.
+
 ```go
 package main
 
@@ -161,7 +164,11 @@ type Mahasiswa struct {
 
 func main() {
     // Inisialisasi struct sesuai dengan urutan field.
-    mhs := Mahasiswa{"Alice", 20, "Informatika"}
+    mhs := Mahasiswa{
+		Nama:    "Alice",
+		Umur:    20,
+		Jurusan: "Informatika",
+	}
     fmt.Printf("Nama: %s, Umur: %d, Jurusan: %s\n", mhs.Nama, mhs.Umur, mhs.Jurusan)
 }
 ```
